@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {removeBookmark} from '../../redux/actions';
+import {removeBookmark} from '../../redux/action';
 import {Gap, EmptyScreen} from '../../components';
 import {IcFingerOff, IcFingerOn} from '../../assets';
 
@@ -30,7 +30,7 @@ const FavoriteScreen = ({navigation}) => {
           style={styles.containerFood}>
           <Image source={{uri: item.image}} style={styles.image} />
           <View style={styles.content}>
-            <Text style={styles.text}>{item.judul}</Text>
+            <Text style={styles.text}>{item.title}</Text>
             <Gap height={10} />
           </View>
         </TouchableOpacity>

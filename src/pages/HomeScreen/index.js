@@ -11,11 +11,11 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import {IcFingerOff, IcFingerOn} from '../../assets';
 import {Gap} from '../../components';
-import {addBookmark, getRecipes, removeBookmark} from '../../redux/actions';
+import {addBookmark, getRecipes, removeBookmark} from '../../redux/action';
 
 const HomeScreen = ({navigation}) => {
-  const {recipes, bookmarks} = useSelector(state => state.recipesReducer);
   const dispatch = useDispatch();
+  const {recipes, bookmarks} = useSelector(state => state.recipesReducer);
   const addToBookmarkList = recipe => dispatch(addBookmark(recipe));
   const removeFromBookmarkList = recipe => dispatch(removeBookmark(recipe));
 
@@ -42,12 +42,12 @@ const HomeScreen = ({navigation}) => {
     return (
       <View style={{flex: 1, flexDirection: 'row'}}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('DetailScreen', item)}
+          onPress={() => navigation.navigate('DetailScreen', {recipe: item})}
           activeOpacity={0.7}
           style={styles.containerFood}>
           <Image source={{uri: item.image}} style={styles.image} />
           <View style={styles.content}>
-            <Text style={styles.text}>{item.judul}</Text>
+            <Text style={styles.text}>{item.title}</Text>
             <Gap height={10} />
           </View>
         </TouchableOpacity>
