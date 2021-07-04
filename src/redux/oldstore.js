@@ -1,9 +1,8 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {applyMiddleware, createStore, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
+import recipesReducer from './reducers';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistStore, persistReducer} from 'redux-persist';
-import {globalReducer} from './reducer/global';
-import {recipesReducer} from './reducer/recipes';
 
 const persistConfig = {
   key: 'root',
@@ -12,7 +11,6 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  globalReducer,
   recipesReducer: persistReducer(persistConfig, recipesReducer),
 });
 

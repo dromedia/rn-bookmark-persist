@@ -11,7 +11,7 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import {IcFingerOff, IcFingerOn} from '../../assets';
 import {Gap} from '../../components';
-import {addBookmark, getRecipes, removeBookmark} from '../../redux/action';
+import {getRecipes, addBookmark, removeBookmark} from '../../redux/action';
 
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
